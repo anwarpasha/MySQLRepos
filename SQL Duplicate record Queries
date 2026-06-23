@@ -1,0 +1,6 @@
+MyFirstrepo Select * from sys.all_objects where OBJECT_DEFINITION(object_id) like '%any objname %'
+
+--Getting dupliate records
+
+SELECT ent_id, requested_time_local,freq_id,plan_id,context_ent_id,context_item_id,context_oper_id,oper_id, COUNT() AS count FROM sample GROUP BY ent_id, 
+requested_time_local,freq_id,plan_id,context_ent_id,context_item_id,context_oper_id,oper_id HAVING COUNT() > 1 order by requested_time_local desc;
